@@ -36,6 +36,9 @@ int main() {
 
 
     printf("Oi\n");
+    printf("Tchau \n");
+    printf("Alo \n");
+
     // 1. Configuração Inicial (Setup):
     // - Define o locale para português.
     // - Inicializa a semente para geração de números aleatórios com base no tempo atual.
