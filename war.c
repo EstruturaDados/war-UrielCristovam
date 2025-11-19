@@ -29,15 +29,38 @@
 // Funções de lógica principal do jogo:
 // Função utilitária:
 
+
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
 
+    struct Territorio{
+        char Nome;
+        char CorTerritorio;
+        int NumeroTropas; 
+    };
+
+    struct Territorio numeroTerritorio[5];
+    
+    
+    for(int i; i < 5; i++){
+        printf("\n--- TERRITÓRIO #---\n");
 
 
-    printf("Oi\n");
-    printf("Tchau \n");
-    printf("Alo \n");
+        printf("Digite o numero de Tropas");
+        scanf("%d", &numeroTerritorio[i].NumeroTropas);
+        
+        printf("Digite uma cor para o território");
+        scanf("%c", &numeroTerritorio[i].Nome);
+
+        if(i == 5){
+            printf(numeroTerritorio->Nome);
+        }
+        
+    }
+
+
+
 
     // 1. Configuração Inicial (Setup):
     // - Define o locale para português.
