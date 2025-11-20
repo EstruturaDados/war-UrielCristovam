@@ -5,12 +5,10 @@
 // ============================================================================
 //
 // OBJETIVOS:
-// - Modularizar completamente o código em funções especializadas.
-// - Implementar um sistema de missões para um jogador. 
-// - Criar uma função para verificar se a missão foi cumprida.
-// - Utilizar passagem por referência (ponteiros) para modificar dados e
-//   passagem por valor/referência constante (const) para apenas ler.
-// - Foco em: Design de software, modularização, const correctness, lógica de jogo.
+// Criar uma struct chamada Territorio.
+// Usar um vetor estático de 5 elementos para armazenar os territórios.
+// Cadastrar os dados de cada território: Nome, Cor do Exército, e Número de Tropas.
+// Exibir o estado atual do mapa.
 //
 // ============================================================================
 // Inclusão das bibliotecas padrão necessárias para entrada/saída, alocação de memória, manipulação de strings e tempo.
@@ -37,8 +35,8 @@ struct Territorio{
 };
 
 
-// Declarações antecipadas de todas as funções que serão usadas no programa, organizadas por categoria.
-
+// Funções
+// Leitura de dados pelo terminal (fgets e scanf)
 void limparBufferEntrada(){
     int c;
     while((c = getchar()) != '\n' && c != EOF);
@@ -75,6 +73,9 @@ int main() {
 
        
     }
+
+// Impressão organizada dos dados de todos os territórios
+
        
 }
 
