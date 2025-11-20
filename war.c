@@ -22,8 +22,6 @@
 // --- Constantes Globais ---
 // Definem valores fixos para o número de territórios, missões e tamanho máximo de strings, facilitando a manutenção.
 
-struct Territorio mapa[5]; 
-enum { numeroMaxDeTerritorios = 5}; 
 
 
 
@@ -40,27 +38,28 @@ struct Territorio{
 // --- Protótipos das Funções ---
 // Declarações antecipadas de todas as funções que serão usadas no programa, organizadas por categoria.
 
-int limparBufferEntrada(){
+void limparBufferEntrada(){
     int c;
     while((c = getchar()) != '\n' && c != EOF);
 
 }
 
-int entradaDoUsuario(){
-
-    int numeroDeTropas;
+void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoExercito){
     printf("Digite o numero de tropas que deseja alocar:\n");
-    scanf("%d", &numeroDeTropas);
+    scanf("%d", numeroDeTropas);
+    limparBufferEntrada();
 
-    char nomeDoTerritorio;
     printf("Qual é o nome do seu território?\n");
-    scanf("%c", &nomeDoTerritorio);
+    scanf("%c", nomeDoTerritorio);
+    limparBufferEntrada();
 
-    char corDoExercito;
     printf("Qual é a cor do seu exército?\n");
-    scanf("%c", &corDoExercito);
+    scanf("%c", corDoExercito);
+    limparBufferEntrada();
 
 }
+
+
 
 
 
@@ -85,7 +84,7 @@ int main() {
 
 
         printf("\n--- TERRITÓRIO #---\n");
-        entradaDoUsuario();
+        entradaDoUsuario(&numeroTerritorio[i].NumeroTropas, &numeroTerritorio[i].Nome, &numeroTerritorio[i].CorTerritorio);
 
        
     }
