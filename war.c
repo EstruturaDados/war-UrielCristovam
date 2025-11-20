@@ -64,7 +64,6 @@ void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoEx
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
 
-
     struct Territorio numeroTerritorio[5];
     
     
@@ -76,11 +75,6 @@ int main() {
 
        
     }
-    
-        
-
-
-
-    
+       
 }
 
