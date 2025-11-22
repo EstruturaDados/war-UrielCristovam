@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
+
 
 
 // --- Constantes Globais ---
@@ -43,7 +43,9 @@ void limparBufferEntrada(){
 
 }
 
-void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoExercito){
+void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoExercito, struct Territorio *t, int indice){
+    printf("\n--TERRITÓRIO #%d --- \n", indice);
+
     printf("Digite o numero de tropas que deseja alocar:\n");
     scanf("%d", numeroDeTropas);
     limparBufferEntrada();
@@ -62,13 +64,13 @@ void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoEx
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
 
-    struct Territorio numeroTerritorio[5];
+    struct Territorio nTe[numeroDeTerritorios];
     
     
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < numeroTerritorio; i++){
 
 
-        printf("\n--- TERRITÓRIO #---\n");
+        printf("\n--- TERRITÓRIO 1#---\n", i + 1);
         entradaDoUsuario(&numeroTerritorio[i].NumeroTropas, &numeroTerritorio[i].Nome, &numeroTerritorio[i].CorTerritorio);
 
        
