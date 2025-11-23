@@ -15,13 +15,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h> 
+
 
 
 
 // --- Constantes Globais ---
 // Definem valores fixos para o número de territórios, missões e tamanho máximo de strings, facilitando a manutenção.
 
+#define MAX_TERRITORIOS 5
 
 
 
@@ -29,19 +31,22 @@
 // Define a estrutura para um território, contendo seu nome, a cor do exército que o domina e o número de tropas.
 
 struct Territorio{
-        char Nome;
-        char CorTerritorio;
-        int NumeroTropas; 
+    
+     char NomeTerritorio;    
+     char CorDoTerritório;
+     int numeroDeTropas; 
+ 
 };
 
 
 // Funções
 // Leitura de dados pelo terminal (fgets e scanf)
 void limparBufferEntrada(){
-    int c;
-    while((c = getchar()) != '\n' && c != EOF);
-
-}
+    
+    int c; 
+    while((c = getchar()) != '\n' && c != EOF); 
+    
+};
 
 void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoExercito, struct Territorio *t, int indice){
     printf("\n--TERRITÓRIO #%d --- \n", indice);
@@ -63,21 +68,33 @@ void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoEx
 
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
 int main() {
-
-    struct Territorio nTe[numeroDeTerritorios];
+    
+    struct Territorio territ[MAX_TERRITORIOS];
+    int totalTerritorios = 0;
     
     
-    for(int i = 0; i < numeroTerritorio; i++){
+    do {
+        printf("Território  %d\n", totalTerritorios);
+
+        printf("Digite um numero de tropas \n");
+        scanf("%d", &territ -> numeroDeTropas);
+        limparBufferEntrada();
+
+        printf("Digite o nome do território \n");
+        scanf("%c", &territ -> NomeTerritorio);
+        limparBufferEntrada();
+
+        printf("Digite a cor do exército \n");
+        scanf("%c", &territ -> CorDoTerritório);
+        limparBufferEntrada();
 
 
-        printf("\n--- TERRITÓRIO 1#---\n", i + 1);
-        entradaDoUsuario(&numeroTerritorio[i].NumeroTropas, &numeroTerritorio[i].Nome, &numeroTerritorio[i].CorTerritorio);
-
-       
-    }
+        totalTerritorios++; 
+    } while (totalTerritorios < 5);
+}
 
 // Impressão organizada dos dados de todos os territórios
 
        
-}
+
 
