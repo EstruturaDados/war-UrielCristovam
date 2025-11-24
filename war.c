@@ -32,8 +32,8 @@
 
 struct Territorio{
     
-     char NomeTerritorio;    
-     char CorDoTerritório;
+     char NomeTerritorio[50];    
+     char CorDoTerritório[50];
      int numeroDeTropas; 
  
 };
@@ -48,21 +48,33 @@ void limparBufferEntrada(){
     
 };
 
-void entradaDoUsuario(int *numeroDeTropas, char *nomeDoTerritorio, char *corDoExercito, struct Territorio *t, int indice){
+void entradaDoUsuario(struct Territorio *t, int indice){
     printf("\n--TERRITÓRIO #%d --- \n", indice);
 
     printf("Digite o numero de tropas que deseja alocar:\n");
-    scanf("%d", numeroDeTropas);
+    scanf("%d", &t->numeroDeTropas);
     limparBufferEntrada();
 
     printf("Qual é o nome do seu território?\n");
-    scanf("%c", nomeDoTerritorio);
+    scanf("%49s", t->NomeTerritorio);
     limparBufferEntrada();
 
     printf("Qual é a cor do seu exército?\n");
-    scanf("%c", corDoExercito);
+    scanf("%49s", t->CorDoTerritório);
     limparBufferEntrada();
 
+}
+
+
+//Função a ser estudada melhor 
+void exibirMapa(const struct Territorio territ[], int total){
+
+    printf("\n========== MAPA FINAL ==========");
+    for(int i = 0; i < total; ++i){
+        printf("\nTerritório %d | Cor: %s | Nome: %s | Tropas: %d",
+               i + 1, territ[i].CorDoTerritório, territ[i].NomeTerritorio, territ[i].numeroDeTropas);
+    }
+    printf("\n================================\n");
 }
 
 
@@ -73,28 +85,17 @@ int main() {
     int totalTerritorios = 0;
     
     
-    do {
-        printf("Território  %d\n", totalTerritorios);
-
-        printf("Digite um numero de tropas \n");
-        scanf("%d", &territ -> numeroDeTropas);
-        limparBufferEntrada();
-
-        printf("Digite o nome do território \n");
-        scanf("%c", &territ -> NomeTerritorio);
-        limparBufferEntrada();
-
-        printf("Digite a cor do exército \n");
-        scanf("%c", &territ -> CorDoTerritório);
-        limparBufferEntrada();
-
-
-        totalTerritorios++; 
-    } while (totalTerritorios < 5);
+    for(int i = 0; i < MAX_TERRITORIOS; ++i){
+        entradaDoUsuario(&territ[i], i + 1);
+    }
+    
+    exibirMapa(territ, MAX_TERRITORIOS);
+    
+    return 0;
+    
 }
 
 // Impressão organizada dos dados de todos os territórios
 
-       
 
 
